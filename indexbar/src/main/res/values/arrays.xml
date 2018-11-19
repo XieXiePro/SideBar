@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <!--首字母检索-->
     <declare-styleable name="IndexBar">
-        <attr name="indexBarTextSize" />
+        <attr name="indexBarTextSize" format="dimension" />
         <attr name="indexBarPressBackground" format="color" />
     </declare-styleable>
 
