@@ -432,7 +432,7 @@ public class IndexBar extends View {
             mDataHelper.getSortedIndexDatas(mSourceDatas, mIndexDatas);
             computeGapHeight();
         }
-        //sortData();
+//        sortData();
     }
 
     /**

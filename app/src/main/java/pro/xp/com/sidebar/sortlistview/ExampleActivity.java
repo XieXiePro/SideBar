@@ -6,13 +6,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
-import com.urovo.wugumofang.view.indexBar.IndexbarConfig;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import pro.xp.com.indexbar.IndexBar.widget.IndexBar;
+import pro.xp.com.indexbar.IndexbarConfig;
 import pro.xp.com.sidebar.R;
+import pro.xp.com.sidebar.model.ProductParamListEntity;
+import pro.xp.com.sidebar.utils.AssetsUtil;
 
 public class ExampleActivity extends Activity {
     IndexBar indexbar;
@@ -33,7 +36,8 @@ public class ExampleActivity extends Activity {
         orderListRv = (RecyclerView) findViewById(R.id.proLv);
         orderListRv.setLayoutManager(new LinearLayoutManager(this));
 
-        showList = filledData(getResources().getStringArray(R.array.date));
+        showList = filledData();
+//        showList = filledData(getResources().getStringArray(R.array.date));
         adapter = new ExampleAdapter(showList);
         orderListRv.setAdapter(adapter);
         refreshRvByLabel(-1);
@@ -59,6 +63,21 @@ public class ExampleActivity extends Activity {
             ExampleModel sortModel = new ExampleModel();
             sortModel.setName(data);
             showList.add(sortModel);
+        }
+        return showList;
+    }
+
+    private List<ExampleModel> filledData() {
+        String fuction = AssetsUtil.getFromAssets(this, "addData.json");
+        ProductParamListEntity functions = new Gson().fromJson(fuction, ProductParamListEntity.class);
+        if (null != functions && null != functions.getResultList()) {
+            for (int i = 0; i < functions.getResultList().size(); i++) {
+                for (int j = 0; j < functions.getResultList().get(i).getProductAndSuggestOrderGoodsList().size(); j++) {
+                    ExampleModel sortModel = new ExampleModel();
+                    sortModel.setName(functions.getResultList().get(i).getProductAndSuggestOrderGoodsList().get(j).getFixedProduct().getProductName());
+                    showList.add(sortModel);
+                }
+            }
         }
         return showList;
     }

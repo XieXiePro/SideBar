@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".sortlistview.ExampleActivity">
+
+        </activity>
+        <activity android:name=".sortviewpager.GoodsAuditingAddProductsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

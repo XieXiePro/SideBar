@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/product_view_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#999999"
+        android:dividerHeight="1px" />
+
+    <TextView
+        android:id="@+id/product_view_tv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="#999999"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="48sp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <pro.xp.com.indexbar.IndexBar.widget.IndexBar
+        android:id="@+id/product_index_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="2dp"
+        android:background="#f5f5f5"
+        android:padding="2dp" />
+</RelativeLayout>

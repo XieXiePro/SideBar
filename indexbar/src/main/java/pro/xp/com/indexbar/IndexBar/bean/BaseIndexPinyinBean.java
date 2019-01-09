@@ -31,5 +31,4 @@ public abstract class BaseIndexPinyinBean extends BaseIndexBean {
     //需要转化成拼音的目标字段
     public abstract String getTarget();
 
-
 }

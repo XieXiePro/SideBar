@@ -1,4 +1,4 @@
-package com.urovo.wugumofang.view.indexBar
+package pro.xp.com.indexbar
 
 import android.content.Context
 import android.graphics.Color
@@ -51,7 +51,7 @@ class IndexbarConfig(val mContext: Context, val indexBar: IndexBar, val tvSideBa
             setmLayoutManager(proLv.layoutManager as LinearLayoutManager)//设置RecyclerView的LayoutManager
             visibility = View.GONE
         }
-        return this;
+        return this
     }
 
     //如果一个页面是动态的，有时需要显示索引，有时不需要，那就可以调用这个方法。
@@ -90,9 +90,4 @@ class IndexbarConfig(val mContext: Context, val indexBar: IndexBar, val tvSideBa
         indexBar.setCustomComparator(comparator)
         return indexBar
     }
-
-
-
-
-
 }

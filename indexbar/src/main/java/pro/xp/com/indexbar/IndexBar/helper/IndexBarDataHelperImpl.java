@@ -102,24 +102,24 @@ public class IndexBarDataHelperImpl implements IIndexBarDataHelper {
         Collections.sort(datas, new Comparator<BaseIndexPinyinBean>() {
             @Override
             public int compare(BaseIndexPinyinBean lhs, BaseIndexPinyinBean rhs) {
+                boolean flag;
                 if (!lhs.isNeedToPinyin()) {
                     return 0;
                 } else if (!rhs.isNeedToPinyin()) {
                     return 0;
-                } else if (lhs.getBaseIndexTag().equals("#")) {
-                    return 1;
-                } else if (rhs.getBaseIndexTag().equals("#")) {
-                    return -1;
+//                } else if (lhs.getBaseIndexTag().equals("#")) {
+//                    return 1;
+//                } else if (rhs.getBaseIndexTag().equals("#")) {
+//                    return -1;
+//                }
+                } else if ((flag = lhs.getBaseIndexTag().startsWith("#")) ^ rhs.getBaseIndexTag().startsWith("#")) {
+                    return flag ? 1 : -1;
                 }
-                if(mComparator != null){
-                    return mComparator.compare(lhs,rhs);
-                }else{
+                if (mComparator != null) {
+                    return mComparator.compare(lhs, rhs);
+                } else {
                     return lhs.getBaseIndexPinyin().compareTo(rhs.getBaseIndexPinyin());
                 }
-                    /*else if((lhs instanceof ProductEntity) && (rhs instanceof  ProductEntity)//如果是产品对比，并且索引相同，那就用产品编号来排序（升序）
-                                && lhs.getBaseIndexTag().compareTo(rhs.getBaseIndexTag()) == 0){
-                    return ((ProductEntity) lhs).getItemId().compareTo(((ProductEntity) rhs).getItemId());
-                } */
             }
         });
         return this;
